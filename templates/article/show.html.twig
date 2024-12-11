@@ -31,7 +31,13 @@
                     <td>{{ article.id }}</td>
                     <td>{{ article.title }}</td>
                     <td>{{ article.uid }}</td>
-                    <td>{{ article.activity }}</td>
+                    <td>
+                        {% if article.activity == true %}
+                            {{ 'Активна' }}
+                        {% else %}
+                            {{ 'Не активна' }}
+                        {% endif %}
+                    </td>
                     <td>
                         {% if article.views <= 999 %}
                             {{ article.views }}
