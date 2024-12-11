@@ -23,7 +23,7 @@ class Article
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $activity = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(nullable: true, options: ['default' => 0])]
     private ?int $views = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
