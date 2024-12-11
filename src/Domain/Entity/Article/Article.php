@@ -20,8 +20,8 @@ class Article
     #[ORM\Column(type: 'string', unique: true, length: 25)]
     private ?string $uid = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $activity = null;
+    #[ORM\Column(nullable: true)]
+    private ?bool $activity = null;
 
     #[ORM\Column(nullable: true, options: ['default' => 0])]
     private ?int $views = null;
@@ -61,12 +61,12 @@ class Article
         return $this;
     }
 
-    public function getActivity(): ?string
+    public function getActivity(): ?bool
     {
         return $this->activity;
     }
 
-    public function setActivity(?string $activity): static
+    public function setActivity(?bool $activity): static
     {
         $this->activity = $activity;
 
