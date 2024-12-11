@@ -32,7 +32,17 @@
                     <td>{{ article.title }}</td>
                     <td>{{ article.uid }}</td>
                     <td>{{ article.activity }}</td>
-                    <td>{{ article.views }}</td>
+                    <td>
+                        {% if article.views <= 999 %}
+                            {{ article.views }}
+                        {% elseif article.views > 999 %}
+                            {{ '1K' }}
+                        {% elseif article.views > 999999 %}
+                            {{ '1M' }}
+                        {% elseif article.views > 999999999 %}
+                            {{ '1B' }}
+                        {% endif %}
+                    </td>
                     <td>{{ article.description }}</td>
                     <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 </tr>
