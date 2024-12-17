@@ -12,25 +12,25 @@ class Article
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private ?int $id = null;
+    private ?int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private ?string $title = null;
+    private ?string $title;
 
     #[ORM\Column(type: 'string', unique: true, length: 25)]
-    private ?string $uid = null;
+    private ?string $uid;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $activity = null;
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private bool $activity;
 
-    #[ORM\Column(nullable: true, options: ['default' => 0])]
-    private ?int $views = null;
+    #[ORM\Column(type: 'integer', options: ['default' => 0], nullable: true)]
+    private ?int $views;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $description = null;
+    private ?string $description;
 
     #[ORM\Column]
-    private ?\DateTime $created_at = null;
+    private ?\DateTime $createdAt;
 
     public function getId(): ?int
     {
@@ -99,12 +99,12 @@ class Article
 
     public function getCreatedAt(): ?\DateTime
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTime $created_at): static
+    public function setCreatedAt(\DateTime $createdAt): static
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
